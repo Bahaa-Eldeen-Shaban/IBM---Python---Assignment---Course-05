@@ -50,24 +50,31 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 *# URL of Tesla's financials page*
+
 url = 'https://companiesmarketcap.com/tesla/revenue/'
 
 *# Send an HTTP request to the URL*
+
 response = requests.get(url)
 
 *# Parse the HTML content of the page*
+
 soup = BeautifulSoup(response.content, 'html.parser')
 
 *# Find the data table (Adjust the selector as needed based on page structure)*
+
 tables = soup.find_all('table')
 
 *# Assuming the relevant table is the first one; adjust index if necessary*
+
 data_table = tables[0]  # or another index if the relevant table is different
 
 *# Convert the table to a DataFrame*
+
 df = pd.read_html(str(data_table))[0]
 
 *# Rename the DataFrame for clarity*
+
 tesla_revenue = df
 
 *# Display the last five rows of the DataFrame*

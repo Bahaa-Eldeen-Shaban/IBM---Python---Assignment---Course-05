@@ -97,15 +97,19 @@ print(tesla_revenue.tail())
 import yfinance as yf
 
 *# Download historical data for GameStop (GME)*
+
 gme_data = yf.download('GME', start='2023-01-01', end='2023-12-31')
 
 *# Reset the index*
+
 gme_data_reset = gme_data.reset_index()
 
 *# Save the DataFrame to a CSV file*
+
 gme_data_reset.to_csv('gme_data.csv', index=False)
 
 *# Display the first five rows of the DataFrame*
+
 print(gme_data_reset.head())
 
 ![Question 3_ Use yfinance to Extract Stock Data](https://github.com/user-attachments/assets/05a9378f-b3f7-4d8f-ba17-b22a40d7b785)
@@ -119,12 +123,15 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 *# URL of GME revenue data (adjust the URL if necessary)*
+
 url = 'https://companiesmarketcap.com/gamestop/revenue/'
 
 *# Send an HTTP request to the URL*
+
 response = requests.get(url)
 
 *# Check if the request was successful*
+
 if response.status_code == 200:
     # Parse the HTML content of the page
     
@@ -158,9 +165,11 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 
 *# Download historical data for Tesla (TSLA)*
+
 tesla_data = yf.download('TSLA', start='2023-01-01', end='2023-12-31')
 
 *# Define a function to plot the stock data*
+
 def make_graph(data):
 
     plt.figure(figsize=(10, 6))
